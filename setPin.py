@@ -10,7 +10,11 @@ def setGpioOutPinState(pin, isOn):
     gpio.setmode(gpio.BCM)
     gpio.setup(pin, gpio.OUT)
 
-    print "setGpioOutPinState: Setting pin", pin, "to ON"
+    if isOn == True:
+        print "setGpioOutPinState: Setting pin", pin, "to ON"
+    else:
+        print "setGpioOutPinState: Setting pin", pin, "to OFF"
+    
     gpio.output(pin, isOn)
 
     gpio.cleanup()
