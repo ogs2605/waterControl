@@ -1,4 +1,5 @@
 import setPin as setPin
 
-
-setPin.setPin21On()
+print "pin21On: main"
+setPin.setGpioOutPinState(21, True)
+    

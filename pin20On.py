@@ -1,15 +1,8 @@
-import RPi.GPIO as gpio
-import time
+import setPin as setPin
 
-outputPin = 20
-
-gpio.setmode(gpio.BCM)
-gpio.setup(outputPin, gpio.OUT)
-
-print "Setting pin", outputPin, "to ON"
-gpio.output(outputPin, True)
-
-gpio.cleanup()
+print "pin20On: main"
+setPin.setGpioOutPinState(20, True)
+    
 
 
 
