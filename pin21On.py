@@ -1,4 +1,4 @@
 import setPin as setPin
 
 
-setPin.setPin()
+setPin.setPin21On()

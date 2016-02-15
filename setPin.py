@@ -1,13 +1,17 @@
 import RPi.GPIO as gpio
 import time
 
-def setPin():
-    outputPin = 21
-
+def setPin21On():
+    print "setGpioOutPinState: setPin21On"
+    setGpioOutPinState(21, True)
+    
+    
+def setGpioOutPinState(pin, isOn):
     gpio.setmode(gpio.BCM)
-    gpio.setup(outputPin, gpio.OUT)
+    gpio.setup(pin, gpio.OUT)
 
-    print "Setting pin", outputPin, "to ON"
-    gpio.output(outputPin, True)
+    print "setGpioOutPinState: Setting pin", pin, "to ON"
+    gpio.output(pin, isOn)
 
     gpio.cleanup()
+

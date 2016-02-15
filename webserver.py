@@ -1,6 +1,7 @@
 import web
 from web import form
 import os
+import setPin as setPin
 
 # tuples of URL pattern and name of handler class 
 urls = (
@@ -25,8 +26,8 @@ login = form.Form(
 
 class pin21On:
     def GET(self):
-      return os.system("python /home/pi/pin21On.py")
       print "pin 21 on received...."
+      setPin.setPin21On()        
       return "pin 21 on received...."
       
 class pin21Off:
