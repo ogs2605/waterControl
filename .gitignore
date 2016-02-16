@@ -1,3 +1,6 @@
+#ignore the the web-py package (this is an installed package)
 web.py-0.37/
+
+#ignore the compiled python classes
 *.pyc
 
