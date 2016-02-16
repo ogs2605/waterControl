@@ -27,25 +27,25 @@ class pin21On:
     def GET(self):
       print "pin 21 on received...."
       setPin.setGpioOutPinState(21, True)        
-      return "pin 21 on received...."
+      return render.welcome("pin 21 on received....");
       
 class pin21Off:
     def GET(self):
       setPin.setGpioOutPinState(21, False)
       print "pin 21 off received...."
-      return "pin 21 off received...."
+      return render.welcome("pin 21 off received....");
 
 class pin20On:
     def GET(self):
       setPin.setGpioOutPinState(20, True)
       print "pin 20 on received...."
-      return "pin 20 on received...."
-
+      return render.welcome("pin 20 on received....");
+    
 class pin20Off:
     def GET(self):
       setPin.setGpioOutPinState(20, False)
       print "pin 20 off received...."
-      return "pin 20 off received...."
+      return render.welcome("pin 20 off received....");
 
 class list_users:
     def GET(self, name):
@@ -53,11 +53,9 @@ class list_users:
         print "name=", web.input()["name22"]
         return "Listing info about user: {0}".format(name), "name=", web.input()["name22"]
 
-      
 class index:
     def GET(self):
-        form = login()
-        return render.formtest(form)
+        raise web.seeother("/static/RaspPiGpioControl.html")
         
     def POST(self):
         form = login()
