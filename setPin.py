@@ -1,6 +1,6 @@
 import RPi.GPIO as gpio
 import time
-    
+
 def setGpioOutPinState(pin, isOn):
     gpio.setmode(gpio.BCM)
     gpio.setup(pin, gpio.OUT)
@@ -12,5 +12,4 @@ def setGpioOutPinState(pin, isOn):
     
     gpio.output(pin, isOn)
 
-    gpio.cleanup()
-
+    
