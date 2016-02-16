@@ -3,17 +3,6 @@ from web import form
 import os
 import setPin as setPin
 
-# tuples of URL pattern and name of handler class 
-urls = (
-  '/', 'index', 
-  '/pin21On', 'pin21On', 
-  '/pin21Off', 'pin21Off', 
-  '/pin20On', 'pin20On', 
-  '/pin20Off', 'pin20Off', 
-  "/users/(.+)", "list_users"
-)
-
-
 render = web.template.render('templates/')
 
 login = form.Form(
@@ -24,27 +13,37 @@ login = form.Form(
     form.Button('Login3'),
 )
 
+# tuples of URL pattern and name of handler class 
+urls = (
+  '/', 'index', 
+  '/pin21On', 'pin21On', 
+  '/pin21Off', 'pin21Off', 
+  '/pin20On', 'pin20On', 
+  '/pin20Off', 'pin20Off', 
+  "/users/(.+)", "list_users"
+)
+
 class pin21On:
     def GET(self):
       print "pin 21 on received...."
-      setPin.setPin21On()        
+      setPin.setGpioOutPinState(21, True)        
       return "pin 21 on received...."
       
 class pin21Off:
     def GET(self):
-      return os.system("python /home/pi/pin21Off.py")
+      setPin.setGpioOutPinState(21, False)
       print "pin 21 off received...."
       return "pin 21 off received...."
 
 class pin20On:
     def GET(self):
-      return os.system("python /home/pi/pin20On.py")
+      setPin.setGpioOutPinState(20, True)
       print "pin 20 on received...."
       return "pin 20 on received...."
 
 class pin20Off:
     def GET(self):
-      return os.system("python /home/pi/pin20Off.py")
+      setPin.setGpioOutPinState(20, False)
       print "pin 20 off received...."
       return "pin 20 off received...."
 
