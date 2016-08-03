@@ -20,6 +20,8 @@ urls = (
   '/pin21Off', 'pin21Off', 
   '/pin20On', 'pin20On', 
   '/pin20Off', 'pin20Off', 
+  '/pin19On', 'pin19On', 
+  '/pin19Off', 'pin19Off', 
   "/users/(.+)", "list_users"
 )
 
@@ -46,6 +48,19 @@ class pin20Off:
       setPin.setGpioOutPinState(20, False)
       print "pin 20 off received...."
       return render.welcome("pin 20 off received....");
+
+class pin19On: 
+    def GET(self):
+      setPin.setGpioOutPinState(19,True)
+      print "pin 19 on received...."
+      return render.welcome("pin 19 on received....");
+
+class pin19Off:
+    def GET(self):
+      setPin.setGpioOutPinState(19,False)
+      print "pin 19 off received...."
+      return render.welcome("pin 19 off received....");
+
 
 class list_users:
     def GET(self, name):
