@@ -27,45 +27,45 @@ urls = (
 
 class pin21On:
     def GET(self):
-      print "pin 21 on received...."
+      print ("pin 21 on received....")
       setPin.setGpioOutPinState(21, True)        
       return render.welcome("pin 21 on received....");
       
 class pin21Off:
     def GET(self):
       setPin.setGpioOutPinState(21, False)
-      print "pin 21 off received...."
+      print ("pin 21 off received....")
       return render.welcome("pin 21 off received....");
 
 class pin20On:
     def GET(self):
       setPin.setGpioOutPinState(20, True)
-      print "pin 20 on received...."
+      print ("pin 20 on received....")
       return render.welcome("pin 20 on received....");
     
 class pin20Off:
     def GET(self):
       setPin.setGpioOutPinState(20, False)
-      print "pin 20 off received...."
+      print ("pin 20 off received....")
       return render.welcome("pin 20 off received....");
 
 class pin19On: 
     def GET(self):
       setPin.setGpioOutPinState(19,True)
-      print "pin 19 on received...."
+      print ("pin 19 on received....")
       return render.welcome("pin 19 on received....");
 
 class pin19Off:
     def GET(self):
       setPin.setGpioOutPinState(19,False)
-      print "pin 19 off received...."
+      print ("pin 19 off received....")
       return render.welcome("pin 19 off received....");
 
 
 class list_users:
     def GET(self, name):
-        print "web.input()", format (web.input())
-        print "name=", web.input()["name22"]
+        print ("web.input()", format (web.input()))
+        print ("name=", web.input()["name22"])
         return "Listing info about user: {0}".format(name), "name=", web.input()["name22"]
 
 class index:
@@ -74,13 +74,13 @@ class index:
         
     def POST(self):
         form = login()
-        print form
+        print (form)
         if not form.validates():
             return render.formtest(form)
         else:
             return os.system("python /home/pi/fivesecondOn.py"), "username", form['username'].value, "password", form['password'].value
                     
-print urls
+print (urls)
 
 if __name__ == "__main__":
     app = web.application(urls, globals())
