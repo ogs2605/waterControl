@@ -2,7 +2,6 @@ import web
 from web import form
 import os
 import setPin as setPin
-import subprocess as subprocess
 
 render = web.template.render('templates/')
 
@@ -68,14 +67,14 @@ class livingRoomLightsOn:
     def GET(self):
         print ("Turning Living Room Lights On...")
         print ("Sending groupswrite ip:localhost 0/0/3 0x01")
-        subprocess.call("knxtool groupswrite ip:localhost 0/0/3 0x01")
+        os.execl("knxtool groupswrite ip:localhost 0/0/3 0x01")
         return render.welcome("Turning Living Room Lights On...");
 
 class livingRoomLightsOff:
     def GET(self):
         print ("Turning Living Room Lights Off...")
         print ("Sending groupswrite ip:localhost 0/0/3 0x00")
-        subprocess.call("knxtool groupswrite ip:localhost 0/0/3 0x00")
+        os.execl("knxtool groupswrite ip:localhost 0/0/3 0x00")
         return render.welcome("Turning Living Room Lights Off...");
 
 
