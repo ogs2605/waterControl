@@ -22,7 +22,8 @@ urls = (
   '/pin20Off', 'pin20Off', 
   '/pin19On', 'pin19On', 
   '/pin19Off', 'pin19Off',
-  '/livingRoomLightsOn', 'livingRoomLightsOn' 
+  '/livingRoomLightsOn', 'livingRoomLightsOn',
+  '/livingRoomLightsOff', 'livingRoomLightsOff', 
   "/users/(.+)", "list_users"
 )
 
@@ -66,6 +67,11 @@ class livingRoomLightsOn:
     def GET(self):
         print ("Turning Living Room Lights On...")
         return render.welcome("Turning Living Room Lights On...");
+
+class livingRoomLightsOff:
+    def GET(self):
+        print ("Turning Living Room Lights Off...")
+        return render.welcome("Turning Living Room Lights Off...");
 
 
 class list_users:
