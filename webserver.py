@@ -24,6 +24,8 @@ urls = (
   '/pin19Off', 'pin19Off',
   '/livingRoomLightsOn', 'livingRoomLightsOn',
   '/livingRoomLightsOff', 'livingRoomLightsOff', 
+  '/blindsUp', 'blindsUp',
+  '/blindsDown', 'blindsDown', 
   "/users/(.+)", "list_users"
 )
 
@@ -76,6 +78,20 @@ class livingRoomLightsOff:
         print ("Sending groupswrite ip:localhost 0/0/3 0x00")
         os.system("knxtool groupswrite ip:localhost 0/0/3 0x00")
         return render.welcome("Turning Living Room Lights Off...");
+
+class blindsUp:
+    def GET(self):
+        print ("Raising Blinds...")
+        print ("Sending groupswrite ip:localhost 1/0/1 0x01")
+        os.system("knxtool groupswrite ip:localhost 1/0/1 0x01")
+        return render.welcome("Raising Blinds...");
+
+class blindsDown:
+    def GET(self):
+        print ("Lowering Blinds...")
+        print ("Sending groupswrite ip:localhost 1/0/0 0x01")
+        os.system("knxtool groupswrite ip:localhost 1/0/0 0x01")
+        return render.welcome("Lowering Blinds...");
 
 
 class list_users:
