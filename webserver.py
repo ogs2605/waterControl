@@ -22,8 +22,12 @@ urls = (
   '/pin20Off', 'pin20Off', 
   '/pin19On', 'pin19On', 
   '/pin19Off', 'pin19Off',
-  '/livingRoomLightsOn', 'livingRoomLightsOn',
-  '/livingRoomLightsOff', 'livingRoomLightsOff', 
+  '/livingAreaLightsOn', 'livingAreaLightsOn',
+  '/livingAreaLightsOff', 'livingAreaLightsOff', 
+  '/diningAreaLightsOn', 'diningAreaLightsOn',
+  '/diningAreaLightsOff', 'diningAreaLightsOff', 
+  '/kitchenAreaLightsOn', 'kitchenAreaLightsOn',
+  '/kitchenAreaLightsOff', 'kitchenAreaLightsOff', 
   '/blindsUp', 'blindsUp',
   '/blindsDown', 'blindsDown', 
   "/users/(.+)", "list_users"
@@ -65,19 +69,47 @@ class pin19Off:
         print ("pin 19 off received....")
         return render.welcome("pin 19 off received....");
 
-class livingRoomLightsOn:
+class livingAreaLightsOn:
     def GET(self):
-        print ("Turning Living Room Lights On...")
+        print ("Turning Living Area Lights On...")
         print ("Sending groupswrite ip:localhost 0/0/3 0x01")
         os.system("knxtool groupswrite ip:localhost 0/0/3 0x01")
-        return render.welcome("Turning Living Room Lights On...");
+        return render.welcome("Turning Living Area Lights On...");
 
-class livingRoomLightsOff:
+class livingAreaLightsOff:
     def GET(self):
-        print ("Turning Living Room Lights Off...")
+        print ("Turning Living Area Lights Off...")
         print ("Sending groupswrite ip:localhost 0/0/3 0x00")
         os.system("knxtool groupswrite ip:localhost 0/0/3 0x00")
-        return render.welcome("Turning Living Room Lights Off...");
+        return render.welcome("Turning Living Area Lights Off...");
+
+class diningAreaLightsOn:
+    def GET(self):
+        print ("Turning Dining Area Lights On...")
+        print ("Sending groupswrite ip:localhost 0/0/1 0x01")
+        os.system("knxtool groupswrite ip:localhost 0/0/1 0x01")
+        return render.welcome("Turning Dining Area Lights On...");
+
+class diningAreaLightsOff:
+    def GET(self):
+        print ("Turning Dining Area Lights Off...")
+        print ("Sending groupswrite ip:localhost 0/0/1 0x00")
+        os.system("knxtool groupswrite ip:localhost 0/0/1 0x00")
+        return render.welcome("Turning Dining Area Lights Off...");
+
+class kitchenAreaLightsOn:
+    def GET(self):
+        print ("Turning Kitchen Area Lights On...")
+        print ("Sending groupswrite ip:localhost 0/0/7 0x01")
+        os.system("knxtool groupswrite ip:localhost 0/0/7 0x01")
+        return render.welcome("Turning Kitchen Area Lights On...");
+
+class kitchenAreaLightsOff:
+    def GET(self):
+        print ("Turning Kitchn Area Lights Off...")
+        print ("Sending groupswrite ip:localhost 0/0/7 0x00")
+        os.system("knxtool groupswrite ip:localhost 0/0/7 0x00")
+        return render.welcome("Turning Kitchen Area Lights Off...");
 
 class blindsUp:
     def GET(self):
