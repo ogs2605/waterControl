@@ -69,6 +69,14 @@ class pin19Off:
         print ("pin 19 off received....")
         return render.welcome("pin 19 off received....");
 
+class allPinsOff:
+    def GET(self):
+        setPin.setGpioOutPinState(19,False)
+        setPin.setGpioOutPinState(20,False)
+        setPin.setGpioOutPinState(21,False)
+        print ("All Pins Off received....")
+        return render.welcome("All Pins Off received...");
+
 class livingAreaLightsOn:
     def GET(self):
         print ("Turning Living Area Lights On...")
