@@ -22,6 +22,7 @@ urls = (
   '/pin20Off', 'pin20Off', 
   '/pin19On', 'pin19On', 
   '/pin19Off', 'pin19Off',
+  '/allPinsOff', 'allPinsOff',
   '/livingAreaLightsOn', 'livingAreaLightsOn',
   '/livingAreaLightsOff', 'livingAreaLightsOff', 
   '/diningAreaLightsOn', 'diningAreaLightsOn',
@@ -142,7 +143,7 @@ class list_users:
 
 class index:
     def GET(self):
-        raise web.seeother("/static/RaspPiGpioControl.html")
+        return render.welcome("Welcome to the Raspberry Pi Controller for Watering and Blinds!!!!!")
         
     def POST(self):
         form = login()
