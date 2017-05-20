@@ -4,9 +4,9 @@ import time
 def setGpioOutPinState(pin, isOn):
     gpio.setmode(gpio.BCM)
     gpio.setup(pin, gpio.OUT)
-
+    
     if isOn == True:
-        print ("setGpioOutPinState: Setting pin", pin, "to ON")
+        print (time.localtime(), ": setGpioOutPinState: Setting pin", pin, "to ON")
     else:
         print ("setGpioOutPinState: Setting pin", pin, "to OFF")
     
