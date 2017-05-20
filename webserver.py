@@ -2,16 +2,16 @@ import web
 from web import form
 import os
 import setPin as setPin
+from pin21On import pin21On
+from pin21Off import pin21Off
+from pin20On import pin20On
+from pin20Off import pin20Off
+from pin19On import pin19On
+from pin19Off import pin19Off
 
 render = web.template.render('templates/')
 
-login = form.Form(
-    form.Textbox('username'),
-    form.Password('password'),
-    form.Button('Login1'),
-    form.Button('Login2'),
-    form.Button('Login3'),
-)
+login = form.Form(form.Textbox('username'), form.Password('password'), form.Button('Login1'), form.Button('Login2'), form.Button('Login3'),)
 
 # tuples of URL pattern and name of handler class 
 urls = (
@@ -33,42 +33,6 @@ urls = (
   '/blindsDown', 'blindsDown', 
   "/users/(.+)", "list_users"
 )
-
-class pin21On:
-    def GET(self):
-        print ("pin 21 on received....")
-        setPin.setGpioOutPinState(21, True)        
-        return render.welcome("pin 21 on received....");
-      
-class pin21Off:
-    def GET(self):
-        setPin.setGpioOutPinState(21, False)
-        print ("pin 21 off received....")
-        return render.welcome("pin 21 off received....");
-
-class pin20On:
-    def GET(self):
-        setPin.setGpioOutPinState(20, True)
-        print ("pin 20 on received....")
-        return render.welcome("pin 20 on received....");
-    
-class pin20Off:
-    def GET(self):
-        setPin.setGpioOutPinState(20, False)
-        print ("pin 20 off received....")
-        return render.welcome("pin 20 off received....");
-
-class pin19On: 
-    def GET(self):
-        setPin.setGpioOutPinState(19,True)
-        print ("pin 19 on received....")
-        return render.welcome("pin 19 on received....");
-
-class pin19Off:
-    def GET(self):
-        setPin.setGpioOutPinState(19,False)
-        print ("pin 19 off received....")
-        return render.welcome("pin 19 off received....");
 
 class allPinsOff:
     def GET(self):

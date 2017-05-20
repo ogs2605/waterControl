@@ -1,8 +1,11 @@
+import web
 import setPin as setPin
 
-print ("pin20On: main")
-setPin.setGpioOutPinState(20, True)
+class pin20On:
+    def GET(self):
+        setPin.setGpioOutPinState(20, True)
+        print ("pin 20 on received....")
+        return web.template.render('templates/').welcome("pin 20 on received....");
     
-
 
 
