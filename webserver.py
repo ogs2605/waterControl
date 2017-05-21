@@ -2,12 +2,7 @@ import web
 from web import form
 import os
 import setPin as setPin
-from pin21On import pin21On
-from pin21Off import pin21Off
-from pin20On import pin20On
-from pin20Off import pin20Off
-from pin19On import pin19On
-from pin19Off import pin19Off
+import HtmlActions
 
 render = web.template.render('templates/')
 
