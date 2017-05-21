@@ -3,8 +3,13 @@ from web import form
 import os
 import setPin as setPin
 import HtmlActions
+from Pin import Pin
+
 
 render = web.template.render('templates/')
+pin19 = Pin(19)
+pin20 = Pin(20)
+pin21 = Pin(21) 
 
 login = form.Form(form.Textbox('username'), form.Password('password'), form.Button('Login1'), form.Button('Login2'), form.Button('Login3'),)
 

@@ -1,9 +1,7 @@
 import web
-import setPin as setPin
+from webserver import pin21
 
-      
 class pin21Off:
     def GET(self):
-        setPin.setGpioOutPinState(21, False)
-        print ("pin 21 off received....")
+        pin21.off()
         return web.template.render('templates/').welcome("pin 21 off received....");
