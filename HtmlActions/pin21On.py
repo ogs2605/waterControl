@@ -4,8 +4,8 @@ from webserver import pin21
 class pin21On:
          
     def GET(self):
-        pin21.on()
-        return web.template.render('templates/').welcome("pin 21 on received....");
+        pin21.off()
+        return web.template.render('templates/').welcome("pin 21 off received....");
 
      
 class EggieTest:

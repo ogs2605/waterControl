@@ -1,8 +1,14 @@
-$def with (message)
+$def with (message, WateringSystem)
+
+<meta http-equiv="refresh" content="5"/>
 
 <h1>Raspberry Pi GPIO Control Web Server</h1>
 
 <p>$message</p>
+<p>Current Time: $WateringSystem.getCurrentTimeStr()<p>
+<p>Pin 19 is $WateringSystem.pin19.getStateStr()</p>
+<p>Pin 20 is $WateringSystem.pin20.getStateStr()</p>
+<p>Pin 21 is $WateringSystem.pin21.getStateStr()</p>
 
 <a href="../pin21On">pin 21 On</a><p></p>
 
