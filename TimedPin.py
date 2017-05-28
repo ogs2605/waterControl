@@ -21,20 +21,23 @@ class TimedPin(object):
         self.__threadObj = None
         
     def increaseTimeOn(self):
+
+        timeIncrease = 60
                 
         if self.__pin.getIsOn() == False:
             # __pin was off... 
             self.startSchedulerThread()
             now = datetime.datetime.utcnow()
-            self.__turnOffTime = now + datetime.timedelta(0, 10)
-            self.__pinOffEventId = self.__scheduler.enter(10, 1, self.turnOff, ())
-            print ("Scheduling event for 10 seconds time, current time=", now, "off time=", self.__turnOffTime) 
+            self.__turnOffTime = now + datetime.timedelta(0, timeIncrease)
+            self.__pinOffEventId = self.__scheduler.enter(timeIncrease, 1, self.turnOff, ())
+            print ("Scheduling event for " , timeIncrease, " seconds time, current time=", now, "off time=", self.__turnOffTime) 
         else:
             # __pin already on... just increase timer delay
-            self.__turnOffTime = self.__turnOffTime + datetime.timedelta(0, 10)
+            self.__turnOffTime = self.__turnOffTime + datetime.timedelta(0, timeIncrease)
             delayUntilOff = self.__turnOffTime - datetime.datetime.utcnow()            
             self.__scheduler.cancel(self.__pinOffEventId)
             self.__pinOffEventId = self.__scheduler.enter(delayUntilOff.total_seconds(), 1, self.turnOff, ())
+            print ("Scheduling event for " , delayUntilOff.total_seconds(), " seconds time, current time=", datetime.datetime.now(), "off time=", self.__turnOffTime) 
             
         self.__pin.on()
         
