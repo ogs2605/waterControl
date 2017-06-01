@@ -4,6 +4,7 @@ import os
 from Pin import Pin
 from TimedPin import TimedPin
 import datetime
+import logging
 
 render = web.template.render('templates/')
 
@@ -164,6 +165,7 @@ class index:
             return os.system("python /home/pi/fivesecondOn.py"), "username", form['username'].value, "password", form['password'].value
 
 if __name__ == "__main__":
+    logging.warning("Watch OUt!")
     app = web.application(urls, globals())
     print (urls)
     app.run()

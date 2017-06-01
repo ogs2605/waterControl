@@ -4,6 +4,7 @@ Created off 21 May 2017
 @author: James
 '''
 import setPin as setPin
+import logging
 
 class Pin(object):
     '''
@@ -15,12 +16,14 @@ class Pin(object):
         self.__="UNKNOWN!"
         self.__isOn = None
         self.off()
+        logging.info("Pin() " + str(self.__pinNumber) + " created")
         
     def on(self):
         self.__isOn = True
         self.__currentState = "ON"
         setPin.setGpioOutPinState(self.__pinNumber, True)
         print ("Pin.on(): pin ", self.__pinNumber)
+        logging.info('Doing something')
 
     def off(self):
         self.__isOn=False
