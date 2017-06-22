@@ -14,7 +14,10 @@ class WateringSystem (object):
         self.pin19 = TimedPin(19)
         self.pin20 = TimedPin(20) 
         self.pin21 = TimedPin(21) 
-    
+        self.pin19.turnOff()
+        self.pin20.turnOff()
+        self.pin21.turnOff()
+        
     def getCurrentTimeStr(self):
         return datetime.datetime.utcnow().strftime("%A, %d. %B %Y %H:%M:%S")
 
@@ -165,7 +168,8 @@ class index:
             return os.system("python /home/pi/fivesecondOn.py"), "username", form['username'].value, "password", form['password'].value
 
 if __name__ == "__main__":
-    logging.warning("Watch OUt!")
+    logging.warning("Server Starting...")
+    logging.basicConfig(filename='webserver.log',level=logging.DEBUG)
     app = web.application(urls, globals())
     print (urls)
     app.run()
