@@ -22,7 +22,7 @@ class TimedPin(object):
         
     def increaseTimeOn(self):
 
-        timeIncrease = 300
+        timeIncrease = 600
                 
         if self.__pin.getIsOn() == False:
             # __pin was off... 
